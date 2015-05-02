@@ -1,0 +1,22 @@
+---
+:checks_add:
+- :tabs
+- :merge_conflict
+- :debugger
+- :pry
+- :console_log
+- :migration
+:checks_remove:
+- :common
+- :rails
+- :jshint
+- :nb_space
+- :whitespace
+- :local
+- :migration
+:warnings_add:
+- :jshint
+- :nb_space
+- :whitespace
+- :local
+:warning_remove: []
