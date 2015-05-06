@@ -33,13 +33,14 @@ def warn_including_config_file(files)
 end
 
 # == コミット可能かチェック
-# === 引数
-# +files+:: コミット対象のファイル
 # === 戻り値
 # +true+:: コミットOK
 # +false+:: コミットNG
-def commit?(files)
+def commit?
+  cached_files = `git diff --cached --name-only HEAD`
+  files = [cached_files].flatten.each { |file| file.strip! }
+
   warn_including_config_file(files)
 end
 
-exit commit?(ARGV) ? 0 : 1
+exit commit? ? 0 : 1
